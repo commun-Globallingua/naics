@@ -51,6 +51,6 @@ class NAICS {
             throw new \RuntimeException(sprintf('Cannot find NAICS codes for language code: %s', $this->languageCode));
         }
 
-        return $this->codes = require_once $filename;
+        return $this->codes = require $filename;
     }
 };
