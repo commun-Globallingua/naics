@@ -1,8 +1,6 @@
 <?php
 
-namespace Grayalienventures;
-
-$naics_codes = array(
+return array(
 	"11" => "Agriculture, foresterie, pêche et chasse",
 	"111" => "Crop Production",
 	"1111" => "Oilseed and Grain Farming",
