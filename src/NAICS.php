@@ -3,6 +3,12 @@
 namespace Grayalienventures;
 
 class NAICS {
+    protected string $languageCode;
+    public function __construct(string $languageCode = 'en')
+    {
+        $this->languageCode = $languageCode;
+    }
+
     public function verbose_label($code) {
         $list = $this->getCodeList();
 
@@ -33,7 +39,13 @@ class NAICS {
 
     protected function getCodeList(): array
     {
-        require_once('naics_codes.php');
+        $filename = sprintf('%s.php', $this->languageCode);
+
+        if (!file_exists($filename)) {
+            throw new \RuntimeException(sprintf('Cannot find NAICS codes for language code: %s', $this->languageCode));
+        }
+
+        require_once($filename);
 
         return $naics_codes;
     }
