@@ -4,17 +4,17 @@ namespace Grayalienventures;
 
 class NAICS {
 
-    protected array $codes;
-    protected string $languageCode;
+    protected array $codes = [];
+    protected string $languageCode = 'en';
     public function __construct(string $languageCode = 'en')
     {
         $this->languageCode = $languageCode;
+
+        $this->codes = $this->getCodeList();
     }
 
     public function verbose_label($code) {
-        $list = $this->getCodeList();
-
-        return $list[$code];
+        return $this->codes[$code];
     }
 
     // TODO only support level-1 currently
