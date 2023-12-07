@@ -45,7 +45,7 @@ class NAICS {
             return $this->codes;
         }
 
-        $filename = sprintf('./%s.php', $this->languageCode);
+        $filename = sprintf('%s/%s.php', __DIR__, $this->languageCode);
 
         if (!file_exists($filename)) {
             throw new \RuntimeException(sprintf('Cannot find NAICS codes for language code: %s', $this->languageCode));
